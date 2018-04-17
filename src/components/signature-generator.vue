@@ -1,0 +1,178 @@
+<template>
+  <v-container>
+    <v-slide-y-transition mode="out-in">
+      <v-layout row wrap justify-center align-center>
+        <v-flex xs12 md5 offset-md1>
+          <h2>Information</h2>
+          <v-tabs color="indigo" centered v-model="tabs" slider-color="pink lighten-2">
+            <v-tab class="white--text">Main</v-tab>
+            <v-tab class="white--text">Social</v-tab>
+            <v-tab class="white--text">Style</v-tab>
+          </v-tabs>
+          <v-tabs-items v-model="tabs" class="white elevation-1">
+            <v-tab-item class="elevation-1">
+              <v-card>
+                <v-card-text>
+                  <v-container grid-list-md>
+                    <v-layout row wrap>
+                      <v-flex xs6>
+                        <v-text-field v-model="firstName" label="First name"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="lastName" label="Last name"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="phoneNumber" label="Phone number"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="email" label="Email"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="jobTitle" label="Job Title"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="companyName" label="Company Name"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="website" label="Website"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="address" label="Address"></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field v-model="image" placeholder="https://example.com/images/myphoto.jpg" label="Logo / Photo / Avatar URL"></v-text-field>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-card-text>
+              </v-card>
+            </v-tab-item>
+            <v-tab-item></v-tab-item>
+            <v-tab-item></v-tab-item>
+          </v-tabs-items>
+          
+        </v-flex>
+        <v-flex xs6 md5 offset-md1>
+          <h2 class="mt-3">Preview</h2>
+          <v-card>
+          <v-toolbar class="elevation-3" color="indigo" dark>
+            <v-icon color="white">arrow_back</v-icon>
+            <v-toolbar-title>Compose</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-icon color="white">send</v-icon>
+          </v-toolbar>
+          <v-container fluid class="pa-0 mt-2">
+            <v-layout wrap>
+              <v-flex xs2>
+                <v-subheader>To</v-subheader>
+              </v-flex>
+              <v-flex xs10 class="text-xs-right">
+                <v-chip>
+                  <v-avatar>
+                    <img src="https://randomuser.me/api/portraits/men/92.jpg" >
+                  </v-avatar>
+                  Trevor Hansen
+                </v-chip>
+                <v-chip>
+                  <v-avatar>
+                    <img src="https://randomuser.me/api/portraits/men/91.jpg" >
+                  </v-avatar>
+                  Alex Nelson
+                </v-chip>
+              </v-flex>
+              <v-flex xs12>
+                <v-divider></v-divider>
+                <v-text-field
+                  label="Subject"
+                  value="Plans for the weekend"
+                  single-line
+                  full-width
+                  hide-details
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-divider></v-divider>
+                <v-text-field
+                  label="Message"
+                  v-model="message"
+                  full-width
+                  multi-line
+                  single-line
+                  class="pb-0"
+                ></v-text-field>
+                <table>
+                  <tr>
+                    <td class="table-border-right">
+                      <v-avatar size="75px">
+                        <img
+                          class="img-circle elevation-1"
+                          src="https://raw.githubusercontent.com/vuetifyjs/docs/dev/static/doc-images/lists/1.jpg"
+                        >
+                      </v-avatar>
+                    </td>
+                    <td class="table-border-left">
+                      <div class="title">{{firstName}} {{lastName}}</div>
+                      <div>{{jobTitle}}</div>
+                      <div class="company-name">{{companyName}}</div>
+                      <div>{{phoneNumber}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card>
+        </v-flex>
+      </v-layout>
+    </v-slide-y-transition>
+  </v-container>
+</template>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.company-name {
+  font-weight: bold;
+}
+.table-border-right {
+  border-right: 2px solid;
+  padding-right: 1rem;
+}
+.table-border-left {
+  padding-left: 1rem;
+}
+</style>
+
+<script>
+export default {
+  data () {
+    return {
+      tabs: null,
+      firstName: 'John',
+      lastName: 'Doe',
+      phoneNumber: '+46 70 123 45 67',
+      email: 'john.doe@example.com',
+      jobTitle: 'Software Engineer',
+      companyName: 'John Doe Ltd',
+      website: 'www.example.com',
+      address: 'Peace Road 1, Peace Place 2000',
+      image: '',
+      message: 'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa. \n\nRegards,'
+    }
+  },
+  name: 'Signature-Generator-Info'
+}
+</script>
