@@ -37,7 +37,10 @@
                         <v-text-field v-model="website" label="Website"></v-text-field>
                       </v-flex>
                       <v-flex xs6>
-                        <v-text-field v-model="address" label="Address"></v-text-field>
+                        <v-text-field v-model="address1" label="Address 1"></v-text-field>
+                      </v-flex>
+                      <v-flex xs6>
+                        <v-text-field v-model="address2" label="Address 2"></v-text-field>
                       </v-flex>
                       <v-flex xs12>
                         <v-text-field v-model="image" placeholder="https://example.com/images/myphoto.jpg" label="Logo / Photo / Avatar URL"></v-text-field>
@@ -50,7 +53,6 @@
             <v-tab-item></v-tab-item>
             <v-tab-item></v-tab-item>
           </v-tabs-items>
-          
         </v-flex>
         <v-flex xs6 md5 offset-md1>
           <h2 class="mt-3">Preview</h2>
@@ -100,24 +102,47 @@
                   single-line
                   class="pb-0"
                 ></v-text-field>
-                <table>
-                  <tr>
-                    <td class="table-border-right">
-                      <v-avatar size="75px">
+                <table cellspacing="0" cellpadding="0" style="margin-top: 15px; margin-bottom: 5px;">
+                    <tr>
+                      <td class="table-border-right">
                         <img
-                          class="img-circle elevation-1"
-                          src="https://raw.githubusercontent.com/vuetifyjs/docs/dev/static/doc-images/lists/1.jpg"
+                          src="https://server.trovisio.com/static/trovisio-logo.png"
+                          style="width: 50px; height: 68px;"
+                          height="68"
+                          width="50"
                         >
-                      </v-avatar>
+                      </td>
+                      <td>
+                        <table cellspacing="0" cellpadding="0">
+                        <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.trovisio.com/static/trovisio-header.png"></div></tr>
+                        <tr><div style="font-weight: bold; line-height: 25px; font-size: 15px;">{{ firstName }} {{ lastName }}</div></tr>
+                        <tr><div style="line-height: 24px; font-size: 14px;">{{ phoneNumber }}</div></tr>
+                      </table>
+                        <!-- <div>{{ website }}</div> -->
+                      </td>
+                    </tr>
+                  </table>
+                <!-- <table cellspacing="0" cellpadding="0" style="margin-top: 15px; margin-bottom: 5px;">
+                  <tr>
+                    <td style="padding: 0px;" valign="top" class="table-border-right">
+                      <img
+                        src="https://server.trovisio.com/static/trovisio-logo.png"
+                        style="width: 50px; height: 68px;"
+                        height="68"
+                        width="50"
+                      >
                     </td>
-                    <td class="table-border-left">
-                      <div class="title">{{firstName}} {{lastName}}</div>
-                      <div>{{jobTitle}}</div>
-                      <div class="company-name">{{companyName}}</div>
-                      <div>{{phoneNumber}}</div>
+                    <td>
+                      <table cellspacing="0" cellpadding="0">
+                      <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.trovisio.com/static/trovisio-header.png"></div></tr>
+                      <tr><div style="font-weight: bold; line-height: 25px; font-size: 15px;">{{ firstName }} {{ lastName }}</div></tr>
+                      <tr><div style="line-height: 24px; font-size: 14px;">{{ jobTitle }}</div></tr>
+                      <tr><div style="line-height: 24px; font-size: 14px;">{{ phoneNumber }}</div></tr>
+                      <tr><div style="line-height: 24px; font-size: 14px;">{{ address1 }}, {{ address2 }}</div></tr>
+                    </table>
                     </td>
                   </tr>
-                </table>
+                </table> -->
               </v-flex>
             </v-layout>
           </v-container>
@@ -144,15 +169,23 @@ li {
 a {
   color: #42b983;
 }
-.company-name {
+.user-name {
   font-weight: bold;
 }
 .table-border-right {
-  border-right: 2px solid;
-  padding-right: 1rem;
+  padding-right: 0.1rem;
 }
-.table-border-left {
-  padding-left: 1rem;
+/* .image-text {
+  max-width: 60%;
+  height: auto;
+}
+.image-logo {
+  max-width: 50px;
+  height: auto;
+  /* margin-bottom: 8px;
+} */
+.text {
+  margin-top: 2px;
 }
 </style>
 
@@ -163,12 +196,13 @@ export default {
       tabs: null,
       firstName: 'John',
       lastName: 'Doe',
-      phoneNumber: '+46 70 123 45 67',
+      phoneNumber: '+46 70 - 123 45 67',
       email: 'john.doe@example.com',
       jobTitle: 'Software Engineer',
       companyName: 'John Doe Ltd',
       website: 'www.example.com',
-      address: 'Peace Road 1, Peace Place 2000',
+      address1: 'Anders Carlssons gata 7',
+      address2: 'SE-417 55, Gothenburg, Sweden',
       image: '',
       message: 'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa. \n\nRegards,'
     }
