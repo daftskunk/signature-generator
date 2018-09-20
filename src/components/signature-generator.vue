@@ -24,27 +24,27 @@
                       <v-flex xs6>
                         <v-text-field v-model="phoneNumber" label="Phone number"></v-text-field>
                       </v-flex>
-                      <v-flex xs6>
+                      <!-- <v-flex xs6>
                         <v-text-field v-model="email" label="Email"></v-text-field>
-                      </v-flex>
+                      </v-flex> -->
                       <v-flex xs6>
                         <v-text-field v-model="jobTitle" label="Job Title"></v-text-field>
                       </v-flex>
-                      <v-flex xs6>
+                      <!-- <v-flex xs6>
                         <v-text-field v-model="companyName" label="Company Name"></v-text-field>
-                      </v-flex>
-                      <v-flex xs6>
+                      </v-flex> -->
+                      <!-- <v-flex xs6>
                         <v-text-field v-model="website" label="Website"></v-text-field>
-                      </v-flex>
+                      </v-flex> -->
                       <v-flex xs6>
                         <v-text-field v-model="address1" label="Address 1"></v-text-field>
                       </v-flex>
                       <v-flex xs6>
                         <v-text-field v-model="address2" label="Address 2"></v-text-field>
                       </v-flex>
-                      <v-flex xs12>
+                      <!-- <v-flex xs12>
                         <v-text-field v-model="image" placeholder="https://example.com/images/myphoto.jpg" label="Logo / Photo / Avatar URL"></v-text-field>
-                      </v-flex>
+                      </v-flex> -->
                     </v-layout>
                   </v-container>
                 </v-card-text>
@@ -106,7 +106,7 @@
                     <tr>
                       <td class="table-border-right">
                         <img
-                          src="https://server.trovisio.com/static/trovisio-logo.png"
+                          src="https://server.app.trovisio.com/static/trovisio-logo.png"
                           style="width: 50px; height: 68px;"
                           height="68"
                           width="50"
@@ -114,9 +114,11 @@
                       </td>
                       <td>
                         <table cellspacing="0" cellpadding="0">
-                        <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.trovisio.com/static/trovisio-header.png"></div></tr>
-                        <tr><div style="font-weight: bold; line-height: 25px; font-size: 15px;">{{ firstName }} {{ lastName }}</div></tr>
-                        <tr><div style="line-height: 24px; font-size: 14px;">{{ phoneNumber }}</div></tr>
+                        <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.app.trovisio.com/static/trovisio-header.png"></div></tr>
+                        <tr v-if="firstName || lastName"><div style="font-weight: bold; line-height: 25px; font-size: 15px;">{{ firstName }} {{ lastName }}</div></tr>
+                        <tr v-if="jobTitle"><div style="line-height: 24px; font-size: 14px;">{{ jobTitle }}</div></tr>
+                        <tr v-if="phoneNumber"><div style="line-height: 24px; font-size: 14px;">{{ phoneNumber }}</div></tr>
+                        <tr v-if="address1 || address2" ><div style="line-height: 24px; font-size: 14px;">{{ address1 }}, {{ address2 }}</div></tr>
                       </table>
                         <!-- <div>{{ website }}</div> -->
                       </td>
@@ -126,7 +128,7 @@
                   <tr>
                     <td style="padding: 0px;" valign="top" class="table-border-right">
                       <img
-                        src="https://server.trovisio.com/static/trovisio-logo.png"
+                        src="https://server.app.trovisio.com/static/trovisio-logo.png"
                         style="width: 50px; height: 68px;"
                         height="68"
                         width="50"
@@ -134,7 +136,7 @@
                     </td>
                     <td>
                       <table cellspacing="0" cellpadding="0">
-                      <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.trovisio.com/static/trovisio-header.png"></div></tr>
+                      <tr><div><img style="width: 96px; height: 19px;" height="19" width="96" src="https://server.app.trovisio.com/static/trovisio-header.png"></div></tr>
                       <tr><div style="font-weight: bold; line-height: 25px; font-size: 15px;">{{ firstName }} {{ lastName }}</div></tr>
                       <tr><div style="line-height: 24px; font-size: 14px;">{{ jobTitle }}</div></tr>
                       <tr><div style="line-height: 24px; font-size: 14px;">{{ phoneNumber }}</div></tr>
@@ -207,6 +209,6 @@ export default {
       message: 'Hi,\nI just wanted to check in and see if you had any plans the upcoming weekend. We are thinking of heading up to Napa. \n\nRegards,'
     }
   },
-  name: 'Signature-Generator-Info'
+  name: 'Signature-Generator'
 }
 </script>
